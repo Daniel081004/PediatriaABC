@@ -38,6 +38,7 @@ namespace PediatriaABC.ViewModels
         }
         bool Validar()
         {
+            Errores = "";
             var hoy = DateOnly.FromDateTime(DateTime.Today);
             var hace18Años = hoy.AddYears(-18);
             if (string.IsNullOrWhiteSpace(Cliente.NombreTutor))
@@ -71,6 +72,7 @@ namespace PediatriaABC.ViewModels
             }
             else
             {
+                PropertyChanged?.Invoke(this, new(nameof(Errores)));
                 return false;
             }
         }
@@ -81,6 +83,8 @@ namespace PediatriaABC.ViewModels
                 if (Validar())
                 {
                     repository.Insert(Cliente);
+                    Vista = "Home";
+                    PropertyChanged?.Invoke(this,new(nameof(Vista)));
                 }
             }
         }
