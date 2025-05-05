@@ -37,27 +37,27 @@ namespace PediatriaABC.Repositories
             var hace18Años = hoy.AddYears(-18);
             if (string.IsNullOrWhiteSpace(Cliente.NombreTutor))
             {
-                Errores = "Escribe el nombre del tutor\n";
+                Errores += "Escribe el nombre del tutor\n";
             }
             if (string.IsNullOrWhiteSpace(Cliente.NombreHijo))
             {
-                Errores = "Escribe el nombre del hijo\n";
+                Errores += "Escribe el nombre del hijo\n";
             }
             if (!string.IsNullOrWhiteSpace(Cliente.Telefono) && Regex.IsMatch(Cliente.Telefono, @"^\d{10}$"))
             {
-                Errores = "Escribe un numero de telefono valido\n";
+                Errores += "Escribe un numero de telefono valido\n";
             }
             if (string.IsNullOrWhiteSpace(Cliente.Direccion))
             {
-                Errores = "Escribe una direccion\n";
+                Errores += "Escribe una direccion\n";
             }
             if (Cliente.FechaNacimientoHijo > hoy)
             {
-                Errores = "La fecha de nacimiento no puede ser en el futuro\n";
+                Errores += "La fecha de nacimiento no puede ser en el futuro\n";
             }
             if (Cliente.FechaNacimientoHijo <= hace18Años)
             {
-                Errores = "El niño es mayor de edad\n";
+                Errores += "El niño es mayor de edad\n";
             }
 
             if (string.IsNullOrWhiteSpace(Errores))

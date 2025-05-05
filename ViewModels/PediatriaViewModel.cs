@@ -18,7 +18,12 @@ namespace PediatriaABC.ViewModels
         public ObservableCollection<Clientes> ListaClientes { get; set; } = new();
         PediatriaRepository repository = new();
         public string Vista { get; set; } = "Home";
-        public string Errores { get; set; } = "";
+        private string errores = "";
+        public string Errores
+        {
+            get { return errores; }
+            set { errores = value; }
+        }
         public Clientes Cliente { get; set; } = new();
         public ICommand VerAgregarCommand { get; set; }
         public ICommand AgregarCommand { get; set; }
@@ -41,7 +46,7 @@ namespace PediatriaABC.ViewModels
         {
             if (Cliente != null)
             {
-                repository.Insert(Cliente, Errores);
+                repository.Insert(Cliente, out errores);
                 Vista = "Home";
                 PropertyChanged?.Invoke(this, new(nameof(Vista)));
             }
