@@ -17,8 +17,16 @@ namespace PediatriaABC.ViewModels
     {
         public ObservableCollection<Clientes> ListaClientes { get; set; } = new();
         PediatriaRepository repository = new();
-        public string Vista { get; set; } = "Home";
-        private string errores = "";
+        private string errores = "", vista = "";
+        public string Vista
+        {
+            get { return vista; }
+            set
+            {
+                vista = value;
+                PropertyChanged?.Invoke(this, new(nameof(vista)));
+            }
+        }
         public string Errores
         {
             get { return errores; }
@@ -64,14 +72,12 @@ namespace PediatriaABC.ViewModels
 
         private void VerEditar()
         {
-            throw new NotImplementedException();
+            Vista = "Eliminar";
         }
 
         private void Cancelar()
         {
             Vista = "Home";
-            PropertyChanged?.Invoke(this, new(nameof(Vista)));
-            PropertyChanged?.Invoke(this, new(nameof(ListaClientes)));
         }
 
         private void Agregar()
@@ -82,7 +88,6 @@ namespace PediatriaABC.ViewModels
                 if (string.IsNullOrWhiteSpace(errores))
                 {
                     Vista = "Home";
-                    PropertyChanged?.Invoke(this, new(nameof(Vista)));
                 }
             }
         }
@@ -92,11 +97,8 @@ namespace PediatriaABC.ViewModels
             Vista = "Agregar";
             Cliente = new();
             Errores = "";
-            PropertyChanged?.Invoke(this,new(nameof(Vista)));
             PropertyChanged?.Invoke(this, new(nameof(Cliente)));
-            PropertyChanged?.Invoke(this, new(nameof(Errores)));
         }
-
         public event PropertyChangedEventHandler? PropertyChanged;
     }
 }

@@ -11,7 +11,7 @@ namespace PediatriaABC.Repositories
 {
     public class PediatriaRepository
     {
-        Sql3775903Context context = new();
+        Sql3777119Context context = new();
         public IEnumerable<Clientes> GetByAll()
         {
             return context.Clientes;
