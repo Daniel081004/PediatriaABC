@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PediatriaABC.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="270" d:DesignWidth="800" Background="Transparent">
+             d:DesignHeight="270" d:DesignWidth="800">
     <StackPanel Height="280" Width="800" Background="#ede6db">
         <TextBlock FontSize="50" FontFamily="Comic Sans MS" Background="#a2b38b" Padding="5" FontWeight="Bold" TextAlignment="Center">Editar registro</TextBlock>
         <Grid Margin="15">
