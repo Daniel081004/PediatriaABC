@@ -22,17 +22,49 @@ namespace PediatriaABC.ViewModels
         public string Errores
         {
             get { return errores; }
-            set { errores = value; }
+            set
+            {
+                errores = value;
+                PropertyChanged?.Invoke(this,new(nameof(Errores)));
+            }
         }
         public Clientes Cliente { get; set; } = new();
         public ICommand VerAgregarCommand { get; set; }
+        public ICommand VerEditarCommand { get; set; }
+        public ICommand VerEliminarCommand { get; set; }
         public ICommand AgregarCommand { get; set; }
+        public ICommand EditarCommand { get; set; }
+        public ICommand EliminarCommand { get; set; }
         public ICommand CancelarCommand { get; set; }
         public PediatriaViewModel()
         {
             VerAgregarCommand = new RelayCommand(VerAgregar);
+            VerEditarCommand = new RelayCommand(VerEditar);
+            VerEliminarCommand = new RelayCommand(VerEliminar);
             AgregarCommand = new RelayCommand(Agregar);
+            EditarCommand = new RelayCommand(Editar);
+            EliminarCommand = new RelayCommand(Eliminar);
             CancelarCommand = new RelayCommand(Cancelar);
+        }
+
+        private void Eliminar()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Editar()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void VerEliminar()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void VerEditar()
+        {
+            throw new NotImplementedException();
         }
 
         private void Cancelar()
