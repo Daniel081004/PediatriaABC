@@ -79,8 +79,11 @@ namespace PediatriaABC.ViewModels
             if (Cliente != null)
             {
                 repository.Insert(Cliente, out errores);
-                Vista = "Home";
-                PropertyChanged?.Invoke(this, new(nameof(Vista)));
+                if (string.IsNullOrWhiteSpace(errores))
+                {
+                    Vista = "Home";
+                    PropertyChanged?.Invoke(this, new(nameof(Vista)));
+                }
             }
         }
 
