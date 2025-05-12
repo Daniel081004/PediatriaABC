@@ -24,18 +24,18 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" FontSize="20">Nombre del tutor:</Label>
-            <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" FontSize="15" Margin="0,5,0,5" VerticalContentAlignment="Center"></TextBox>
+            <TextBox Text="{Binding Cliente.NombreTutor}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" FontSize="15" Margin="0,5,0,5" VerticalContentAlignment="Center"></TextBox>
             <Label Grid.Row="1" Grid.Column="0" FontSize="20">Nombre del hijo:</Label>
-            <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="15" Margin="0,5,0,5" VerticalContentAlignment="Center"></TextBox>
+            <TextBox Text="{Binding Cliente.NombreHijo}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="15" Margin="0,5,0,5" VerticalContentAlignment="Center"></TextBox>
             <Label Grid.Row="2" Grid.Column="0" FontSize="20">Fecha de nacimiento:</Label>
-            <DatePicker Grid.Row="2" Grid.Column="1" FontSize="15" Margin="0,5,10,5"></DatePicker>
+            <DatePicker SelectedDate="{Binding FechaNacimientoHijo}"  Grid.Row="2" Grid.Column="1" FontSize="15" Margin="0,5,10,5"></DatePicker>
             <Label Grid.Row="2" Grid.Column="2" FontSize="20">Telefono:</Label>
-            <TextBox Grid.Row="2" Grid.Column="3" FontSize="15" Margin="0,5,0,5" VerticalContentAlignment="Center"></TextBox>
+            <TextBox Text="{Binding Cliente.Telefono}" Grid.Row="2" Grid.Column="3" FontSize="15" Margin="0,5,0,5" VerticalContentAlignment="Center"></TextBox>
             <Label Grid.Row="3" Grid.Column="0" FontSize="20">Direccion:</Label>
-            <TextBox Grid.Row="3" Grid.Column="1" FontSize="15" Margin="0,5,0,5" VerticalContentAlignment="Center"></TextBox>
+            <TextBox Text="{Binding Cliente.Direccion}" Grid.Row="3" Grid.Column="1" FontSize="15" Margin="0,5,0,5" VerticalContentAlignment="Center"></TextBox>
             <Label Grid.Row="3" Grid.Column="2" FontSize="20">Fecha de registro:</Label>
-            <DatePicker Grid.Row="3" Grid.Column="3" FontSize="15" Margin="0,5,0,5"></DatePicker>
-            <Button Command="{Binding EditarCommand}" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Width="200" Height="40" Content="Editar"></Button>
+            <DatePicker SelectedDate="{Binding FechaRegistro}" Grid.Row="3" Grid.Column="3" FontSize="15" Margin="0,5,0,5"></DatePicker>
+            <Button Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Width="200" Height="40" Content="Agregar" Command="{Binding EditarCommand}"></Button>
         </Grid>
     </StackPanel>
 </UserControl>

@@ -70,6 +70,8 @@ namespace PediatriaABC.ViewModels
 
         private void Editar()
         {
+            Cliente.FechaNacimientoHijo = DateOnly.FromDateTime(FechaNacimiento);
+            Cliente.FechaRegistro = DateOnly.FromDateTime(DateTime.Now);
             repository.Update(Cliente, out errores);
             if (string.IsNullOrWhiteSpace(errores))
             {
@@ -92,7 +94,7 @@ namespace PediatriaABC.ViewModels
             if (!string.IsNullOrWhiteSpace(Cliente.NombreTutor))
             {
                 FechaNacimiento = Cliente.FechaNacimientoHijo.ToDateTime(TimeOnly.MinValue);
-                FechaRegistro = Cliente.FechaRegistro.d
+                FechaRegistro = Cliente.FechaRegistro.ToDateTime(TimeOnly.MinValue);
                 Vista = "Editar";
                 Errores = "";
                 PropertyChanged?.Invoke(this,new(nameof(Cliente)));

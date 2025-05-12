@@ -17,5 +17,5 @@ public partial class Clientes
 
     public string Direccion { get; set; } = null!;
 
-    public DateOnly? FechaRegistro { get; set; }
+    public DateOnly FechaRegistro { get; set; }
 }
