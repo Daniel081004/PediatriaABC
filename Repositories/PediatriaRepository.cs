@@ -11,8 +11,9 @@ namespace PediatriaABC.Repositories
 {
     public class PediatriaRepository
     {
-        Sql3777119Context context = new();
-        public IEnumerable<Clientes> GetByAll()
+        
+        Sql3778435Context context = new();
+        public IEnumerable<Clientes> GetAll()
         {
             return context.Clientes;
         }
@@ -29,7 +30,25 @@ namespace PediatriaABC.Repositories
                 context.SaveChanges();
             }
         }
-
+        public void Update(Clientes cliente, out string Error)
+        {
+            if(Validar(cliente, out Error))
+            {
+                Clientes clienteEditar = context.Clientes.First(x => x.Id == cliente.Id);
+                clienteEditar.NombreTutor = cliente.NombreTutor;
+                clienteEditar.NombreHijo = cliente.NombreHijo;
+                clienteEditar.FechaNacimientoHijo = cliente.FechaNacimientoHijo;
+                clienteEditar.Telefono = cliente.Telefono;
+                clienteEditar.Direccion = cliente.Direccion;
+                clienteEditar.FechaRegistro = cliente.FechaRegistro;
+                context.SaveChanges();
+            }
+        }
+        public void Delete(Clientes cliente)
+        {
+            context.Clientes.Remove(cliente);
+            context.SaveChanges();
+        }
         bool Validar(Clientes Cliente, out string Errores)
         {
             Errores = "";
@@ -68,6 +87,6 @@ namespace PediatriaABC.Repositories
             {
                 return false;
             }
-        }
+        }   
     }
 }

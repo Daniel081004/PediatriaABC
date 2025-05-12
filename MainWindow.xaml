@@ -4,9 +4,70 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PediatriaABC"
+        xmlns:vm="clr-namespace:PediatriaABC.ViewModels"
+        xmlns:views="clr-namespace:PediatriaABC.Views"
         mc:Ignorable="d"
+        Background="Black"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel Background="#E9D5DA">
+    <Window.DataContext>
+        <vm:PediatriaViewModel></vm:PediatriaViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Grid.Style>
+            <Style TargetType="Grid">
+                <Setter Property="Visibility" Value="Home"></Setter>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Vista}">
+                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
+        
+        
+        <views:AgregarView>
+            <views:AgregarView.Style>
+                <Style TargetType="UserControl">
+                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Vista}" Value="Agregar">
+                            <Setter Property="Visibility" Value="Visible"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </views:AgregarView.Style>
+        </views:AgregarView>
+
+        <views:EditarView>
+            <views:EditarView.Style>
+                <Style TargetType="UserControl">
+                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Vista}" Value="Editar">
+                            <Setter Property="Visibility" Value="Visible"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </views:EditarView.Style>
+        </views:EditarView>
+
+        <views:EliminarView>
+            <views:EliminarView.Style>
+                <Style TargetType="UserControl">
+                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Vista}" Value="Eliminar">
+                            <Setter Property="Visibility" Value="Visible"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </views:EliminarView.Style>
+        </views:EliminarView>
+
+        <StackPanel Background="#E9D5DA">
+
+            
+            
         <TextBlock FontSize="60" TextAlignment="Center" Background="#8FBDD3" FontFamily="Comic Sans MS" Foreground="#EDE6DB" FontWeight="Bold">Pediatria ABC</TextBlock>
 
         <Grid>
@@ -57,4 +118,6 @@
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>
+    </Grid>
+    
 </Window>

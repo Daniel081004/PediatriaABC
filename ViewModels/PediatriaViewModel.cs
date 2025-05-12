@@ -15,9 +15,11 @@ namespace PediatriaABC.ViewModels
 {
     public class PediatriaViewModel : INotifyPropertyChanged
     {
+        
         public ObservableCollection<Clientes> ListaClientes { get; set; } = new();
         PediatriaRepository repository = new();
         private string errores = "", vista = "";
+        private int index = 0;
         public string Vista
         {
             get { return vista; }
@@ -53,26 +55,44 @@ namespace PediatriaABC.ViewModels
             EditarCommand = new RelayCommand(Editar);
             EliminarCommand = new RelayCommand(Eliminar);
             CancelarCommand = new RelayCommand(Cancelar);
+
+            ListaClientes = new(repository.GetAll().ToList());
         }
 
         private void Eliminar()
         {
-            throw new NotImplementedException();
+            repository.Delete(Cliente);
+            Vista = "Home";
+            ListaClientes = new(repository.GetAll().ToList());
         }
 
         private void Editar()
         {
-            throw new NotImplementedException();
+            repository.Update(Cliente, out errores);
+            if (string.IsNullOrWhiteSpace(errores))
+            {
+                Vista = "Home";
+                ListaClientes = new(repository.GetAll().ToList());
+            }
         }
 
         private void VerEliminar()
         {
-            throw new NotImplementedException();
+            if (!string.IsNullOrWhiteSpace(Cliente.NombreTutor))
+            {
+                Vista = "Eliminar";
+                PropertyChanged?.Invoke(this, new(nameof(Cliente)));
+            }
         }
 
         private void VerEditar()
         {
-            Vista = "Eliminar";
+            if (!string.IsNullOrWhiteSpace(Cliente.NombreTutor))
+            {
+                Vista = "Editar";
+                Errores = "";
+                PropertyChanged?.Invoke(this,new(nameof(Cliente)));
+            }
         }
 
         private void Cancelar()
@@ -82,13 +102,12 @@ namespace PediatriaABC.ViewModels
 
         private void Agregar()
         {
-            if (Cliente != null)
+
+            repository.Insert(Cliente, out errores);
+            if (string.IsNullOrWhiteSpace(errores))
             {
-                repository.Insert(Cliente, out errores);
-                if (string.IsNullOrWhiteSpace(errores))
-                {
-                    Vista = "Home";
-                }
+                Vista = "Home";
+                ListaClientes = new(repository.GetAll().ToList());
             }
         }
 
@@ -100,5 +119,6 @@ namespace PediatriaABC.ViewModels
             PropertyChanged?.Invoke(this, new(nameof(Cliente)));
         }
         public event PropertyChangedEventHandler? PropertyChanged;
+        
     }
 }

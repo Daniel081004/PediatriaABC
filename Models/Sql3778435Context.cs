@@ -5,13 +5,13 @@ using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
 
 namespace PediatriaABC.Models;
 
-public partial class Sql3777119Context : DbContext
+public partial class Sql3778435Context : DbContext
 {
-    public Sql3777119Context()
+    public Sql3778435Context()
     {
     }
 
-    public Sql3777119Context(DbContextOptions<Sql3777119Context> options)
+    public Sql3778435Context(DbContextOptions<Sql3778435Context> options)
         : base(options)
     {
     }
@@ -20,7 +20,7 @@ public partial class Sql3777119Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=sql3.freesqldatabase.com;port=3306;database=sql3777119;user=sql3777119;password=MmMVq6YsJX", Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.5.54-mysql"));
+        => optionsBuilder.UseMySql("user=sql3778435;password=dv9u1kGCXC;server=sql3.freesqldatabase.com;database=sql3778435;port=3306", Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.5.54-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
