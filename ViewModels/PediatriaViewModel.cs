@@ -18,7 +18,7 @@ namespace PediatriaABC.ViewModels
         
         public ObservableCollection<Clientes> ListaClientes { get; set; } = new();
         PediatriaRepository repository = new();
-        private string errores = "", vista = "";
+        private string errores = "", vista = "Home";
         private int index = 0;
         public string Vista
         {

@@ -9,7 +9,7 @@
     <StackPanel Width="250" Height="160" Background="#ede6db">
         <TextBlock FontSize="20" FontWeight="Bold" TextAlignment="Center" Background="#9d5353" Padding="7" Foreground="White" FontFamily="Arial">¿Eliminar paciente?</TextBlock>
         <TextBlock FontSize="15" TextAlignment="Center" TextWrapping="Wrap" Margin="0,20,0,20" FontFamily="Arial">Eliminara permanente la informacion registrada</TextBlock>
-        <Button Background="WhiteSmoke" BorderThickness="0.5">Eliminar</Button>
-        <Button Background="WhiteSmoke" BorderThickness="0.5">Cancelar</Button>
+        <Button Command="{Binding EliminarCommand}" Background="WhiteSmoke" BorderThickness="0.5">Eliminar</Button>
+        <Button Command="{Binding CancelarCommand}" Background="WhiteSmoke" BorderThickness="0.5">Cancelar</Button>
     </StackPanel>
 </UserControl>

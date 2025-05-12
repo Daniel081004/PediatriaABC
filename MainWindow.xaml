@@ -13,18 +13,6 @@
         <vm:PediatriaViewModel></vm:PediatriaViewModel>
     </Window.DataContext>
     <Grid>
-        <Grid.Style>
-            <Style TargetType="Grid">
-                <Setter Property="Visibility" Value="Home"></Setter>
-                <Style.Triggers>
-                    <DataTrigger Binding="{Binding Vista}">
-                        <Setter Property="Visibility" Value="Collapsed"></Setter>
-                    </DataTrigger>
-                </Style.Triggers>
-            </Style>
-        </Grid.Style>
-        
-        
         <views:AgregarView>
             <views:AgregarView.Style>
                 <Style TargetType="UserControl">
@@ -66,9 +54,18 @@
 
         <StackPanel Background="#E9D5DA">
 
-            
-            
-        <TextBlock FontSize="60" TextAlignment="Center" Background="#8FBDD3" FontFamily="Comic Sans MS" Foreground="#EDE6DB" FontWeight="Bold">Pediatria ABC</TextBlock>
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Vista}" Value="Home">
+                            <Setter Property="Visibility" Value="Visible"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+
+            <TextBlock FontSize="60" TextAlignment="Center" Background="#8FBDD3" FontFamily="Comic Sans MS" Foreground="#EDE6DB" FontWeight="Bold">Pediatria ABC</TextBlock>
 
         <Grid>
             <Grid.ColumnDefinitions>
