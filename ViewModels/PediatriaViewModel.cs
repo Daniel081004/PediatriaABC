@@ -20,6 +20,8 @@ namespace PediatriaABC.ViewModels
         PediatriaRepository repository = new();
         private string errores = "", vista = "Home";
         private int index = 0;
+        public DateTime FechaNacimiento { get; set; } = DateTime.Now;
+        public DateTime FechaRegistro { get; set; } = DateTime.Now;
         public string Vista
         {
             get { return vista; }
@@ -89,6 +91,8 @@ namespace PediatriaABC.ViewModels
         {
             if (!string.IsNullOrWhiteSpace(Cliente.NombreTutor))
             {
+                FechaNacimiento = Cliente.FechaNacimientoHijo.ToDateTime(TimeOnly.MinValue);
+                FechaRegistro = Cliente.FechaRegistro.d
                 Vista = "Editar";
                 Errores = "";
                 PropertyChanged?.Invoke(this,new(nameof(Cliente)));
@@ -102,7 +106,8 @@ namespace PediatriaABC.ViewModels
 
         private void Agregar()
         {
-
+            Cliente.FechaNacimientoHijo = DateOnly.FromDateTime(FechaNacimiento);
+            Cliente.FechaRegistro = DateOnly.FromDateTime(DateTime.Now);
             repository.Insert(Cliente, out errores);
             if (string.IsNullOrWhiteSpace(errores))
             {
@@ -116,6 +121,8 @@ namespace PediatriaABC.ViewModels
             Vista = "Agregar";
             Cliente = new();
             Errores = "";
+            FechaNacimiento = DateTime.Now;
+            PropertyChanged?.Invoke(this, new(nameof(FechaNacimiento)));
             PropertyChanged?.Invoke(this, new(nameof(Cliente)));
         }
         public event PropertyChangedEventHandler? PropertyChanged;

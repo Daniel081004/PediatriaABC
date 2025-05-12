@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PediatriaABC.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="270" d:DesignWidth="800">
-    <StackPanel Height="280" Width="800" Background="#ede6db">
+             d:DesignHeight="380" d:DesignWidth="880">
+    <StackPanel Width="800" Background="#ede6db" Margin="40,15,40,49">
         <TextBlock FontSize="50" FontFamily="Comic Sans MS" Background="#a2b38b" Padding="5" FontWeight="Bold" TextAlignment="Center">Editar registro</TextBlock>
         <Grid Margin="15">
             <Grid.ColumnDefinitions>
@@ -16,6 +16,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
@@ -34,6 +35,7 @@
             <TextBox Grid.Row="3" Grid.Column="1" FontSize="15" Margin="0,5,0,5" VerticalContentAlignment="Center"></TextBox>
             <Label Grid.Row="3" Grid.Column="2" FontSize="20">Fecha de registro:</Label>
             <DatePicker Grid.Row="3" Grid.Column="3" FontSize="15" Margin="0,5,0,5"></DatePicker>
+            <Button Command="{Binding EditarCommand}" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Width="200" Height="40" Content="Editar"></Button>
         </Grid>
     </StackPanel>
 </UserControl>
