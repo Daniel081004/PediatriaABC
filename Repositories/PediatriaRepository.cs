@@ -62,7 +62,7 @@ namespace PediatriaABC.Repositories
             {
                 Errores += "Escribe el nombre del hijo\n";
             }
-            if (!string.IsNullOrWhiteSpace(Cliente.Telefono) && Regex.IsMatch(Cliente.Telefono, @"^\d{10}$"))
+            if (!string.IsNullOrWhiteSpace(Cliente.Telefono) && !Regex.IsMatch(Cliente.Telefono, @"^\d{10}$"))
             {
                 Errores += "Escribe un numero de telefono valido\n";
             }

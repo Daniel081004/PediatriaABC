@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PediatriaABC.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="380" d:DesignWidth="880">
+             d:DesignHeight="400" d:DesignWidth="880">
     <StackPanel Width="800" Background="#ede6db" Margin="40,15,40,49">
         <TextBlock FontSize="50" FontFamily="Comic Sans MS" Background="#a2b38b" Padding="5" FontWeight="Bold" TextAlignment="Center">Editar registro</TextBlock>
         <Grid Margin="15">
@@ -21,6 +21,7 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" FontSize="20">Nombre del tutor:</Label>
@@ -28,14 +29,15 @@
             <Label Grid.Row="1" Grid.Column="0" FontSize="20">Nombre del hijo:</Label>
             <TextBox Text="{Binding Cliente.NombreHijo}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="15" Margin="0,5,0,5" VerticalContentAlignment="Center"></TextBox>
             <Label Grid.Row="2" Grid.Column="0" FontSize="20">Fecha de nacimiento:</Label>
-            <DatePicker SelectedDate="{Binding FechaNacimientoHijo}"  Grid.Row="2" Grid.Column="1" FontSize="15" Margin="0,5,10,5"></DatePicker>
+            <DatePicker SelectedDate="{Binding FechaNacimiento}"  Grid.Row="2" Grid.Column="1" FontSize="15" Margin="0,5,10,5"></DatePicker>
             <Label Grid.Row="2" Grid.Column="2" FontSize="20">Telefono:</Label>
             <TextBox Text="{Binding Cliente.Telefono}" Grid.Row="2" Grid.Column="3" FontSize="15" Margin="0,5,0,5" VerticalContentAlignment="Center"></TextBox>
             <Label Grid.Row="3" Grid.Column="0" FontSize="20">Direccion:</Label>
             <TextBox Text="{Binding Cliente.Direccion}" Grid.Row="3" Grid.Column="1" FontSize="15" Margin="0,5,0,5" VerticalContentAlignment="Center"></TextBox>
             <Label Grid.Row="3" Grid.Column="2" FontSize="20">Fecha de registro:</Label>
             <DatePicker SelectedDate="{Binding FechaRegistro}" Grid.Row="3" Grid.Column="3" FontSize="15" Margin="0,5,0,5"></DatePicker>
-            <Button Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Width="200" Height="40" Content="Agregar" Command="{Binding EditarCommand}"></Button>
+            <Button Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Width="200" Height="40" Content="Guardar" Command="{Binding EditarCommand}"></Button>
+            <TextBlock Text="{Binding Errores}" Foreground="Red" Grid.Row="5" Grid.ColumnSpan="5" HorizontalAlignment="Center"></TextBlock>
         </Grid>
     </StackPanel>
 </UserControl>

@@ -66,6 +66,7 @@ namespace PediatriaABC.ViewModels
             repository.Delete(Cliente);
             Vista = "Home";
             ListaClientes = new(repository.GetAll().ToList());
+            PropertyChanged?.Invoke(this, new(nameof(ListaClientes)));
         }
 
         private void Editar()
@@ -77,7 +78,9 @@ namespace PediatriaABC.ViewModels
             {
                 Vista = "Home";
                 ListaClientes = new(repository.GetAll().ToList());
+                PropertyChanged?.Invoke(this, new(nameof(ListaClientes)));
             }
+            PropertyChanged?.Invoke(this, new(nameof(Errores)));
         }
 
         private void VerEliminar()
@@ -104,6 +107,7 @@ namespace PediatriaABC.ViewModels
         private void Cancelar()
         {
             Vista = "Home";
+            ListaClientes = new(repository.GetAll().ToList());
         }
 
         private void Agregar()
@@ -115,7 +119,9 @@ namespace PediatriaABC.ViewModels
             {
                 Vista = "Home";
                 ListaClientes = new(repository.GetAll().ToList());
+                PropertyChanged?.Invoke(this, new(nameof(ListaClientes)));
             }
+            PropertyChanged?.Invoke(this, new(nameof(Errores)));
         }
 
         private void VerAgregar()

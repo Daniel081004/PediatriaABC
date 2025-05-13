@@ -8,7 +8,7 @@
         xmlns:views="clr-namespace:PediatriaABC.Views"
         mc:Ignorable="d"
         Background="Black"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="900">
     <Window.DataContext>
         <vm:PediatriaViewModel></vm:PediatriaViewModel>
     </Window.DataContext>
@@ -73,7 +73,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <CheckBox Grid.Column="0" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="20" VerticalContentAlignment="Center">Citas de hoy</CheckBox>
+            <!--<CheckBox Grid.Column="0" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="20" VerticalContentAlignment="Center">Citas de hoy</CheckBox>-->
 
             <DockPanel Grid.Column="1" HorizontalAlignment="Right" Margin="0,5,20,0">
                 <Button Command="{Binding VerAgregarCommand}" Margin="5" DockPanel.Dock="Left" Background="Transparent" Width="40" BorderBrush="Transparent">
@@ -88,7 +88,7 @@
             </DockPanel>
         </Grid>
 
-        <DataGrid ItemsSource="{Binding ListaClientes}" Margin="10,5,10,5" CanUserAddRows="False" SelectionMode="Single" AutoGenerateColumns="False">
+        <DataGrid ItemsSource="{Binding ListaClientes}" SelectedItem="{Binding Cliente}" Margin="10,5,10,5" CanUserAddRows="False" SelectionMode="Single" AutoGenerateColumns="False">
             <DataGrid.Resources>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
