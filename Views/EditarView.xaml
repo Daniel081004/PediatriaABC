@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PediatriaABC.Views"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"  Background="#90000000"
              d:DesignHeight="400" d:DesignWidth="880">
     <StackPanel Width="800" Background="#ede6db" Margin="40,15,40,49">
         <TextBlock FontSize="50" FontFamily="Comic Sans MS" Background="#a2b38b" Padding="5" FontWeight="Bold" TextAlignment="Center">Editar registro</TextBlock>
@@ -36,7 +36,8 @@
             <TextBox Text="{Binding Cliente.Direccion}" Grid.Row="3" Grid.Column="1" FontSize="15" Margin="0,5,0,5" VerticalContentAlignment="Center"></TextBox>
             <Label Grid.Row="3" Grid.Column="2" FontSize="20">Fecha de registro:</Label>
             <DatePicker SelectedDate="{Binding FechaRegistro}" Grid.Row="3" Grid.Column="3" FontSize="15" Margin="0,5,0,5"></DatePicker>
-            <Button Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Width="200" Height="40" Content="Guardar" Command="{Binding EditarCommand}"></Button>
+            <Button Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Width="200" Height="40" Content="Guardar" Command="{Binding EditarCommand}"></Button>
+            <Button Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Width="200" Height="40" Content="Cancelar" Command="{Binding CancelarCommand}"></Button>
             <TextBlock Text="{Binding Errores}" Foreground="Red" Grid.Row="5" Grid.ColumnSpan="5" HorizontalAlignment="Center"></TextBlock>
         </Grid>
     </StackPanel>
