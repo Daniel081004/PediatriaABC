@@ -31,7 +31,7 @@
             </DockPanel>
         </Grid>
 
-        <DataGrid ItemsSource="{Binding ListaClientes}" SelectedItem="{Binding Cliente}" Margin="10,5,10,5" CanUserAddRows="False" SelectionMode="Single" AutoGenerateColumns="False">
+        <DataGrid CanUserResizeColumns="False" ItemsSource="{Binding ListaClientes}" SelectedItem="{Binding Cliente}" Margin="10,5,10,5" CanUserAddRows="False" SelectionMode="Single" AutoGenerateColumns="False">
             <DataGrid.Resources>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
@@ -40,6 +40,7 @@
                     <Setter Property="BorderThickness" Value="1"></Setter>
                     <Setter Property="Foreground" Value="#f4f4f4"></Setter>
                     <Setter Property="FontSize" Value="20"></Setter>
+                    <Setter Property="Padding" Value="5"/>
                 </Style>
                 <Style TargetType="DataGridCell">
                     <Setter Property="Foreground" Value="Black"></Setter>

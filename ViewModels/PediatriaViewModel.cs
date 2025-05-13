@@ -40,7 +40,7 @@ namespace PediatriaABC.ViewModels
                 PropertyChanged?.Invoke(this,new(nameof(Errores)));
             }
         }
-        public Clientes Cliente { get; set; } = new();
+        public Clientes Cliente { get; set; } = null;
         public ICommand VerAgregarCommand { get; set; }
         public ICommand VerEditarCommand { get; set; }
         public ICommand VerEliminarCommand { get; set; }
@@ -85,23 +85,30 @@ namespace PediatriaABC.ViewModels
 
         private void VerEliminar()
         {
-            if (!string.IsNullOrWhiteSpace(Cliente.NombreTutor))
+            if(Cliente != null)
             {
-                Vista = "Eliminar";
-                PropertyChanged?.Invoke(this, new(nameof(Cliente)));
+                if (!string.IsNullOrWhiteSpace(Cliente.NombreTutor))
+                {
+                    Vista = "Eliminar";
+                    PropertyChanged?.Invoke(this, new(nameof(Cliente)));
+                }
             }
         }
 
         private void VerEditar()
         {
-            if (!string.IsNullOrWhiteSpace(Cliente.NombreTutor))
+            if(Cliente != null)
             {
-                FechaNacimiento = Cliente.FechaNacimientoHijo.ToDateTime(TimeOnly.MinValue);
-                FechaRegistro = Cliente.FechaRegistro.ToDateTime(TimeOnly.MinValue);
-                Vista = "Editar";
-                Errores = "";
-                PropertyChanged?.Invoke(this,new(nameof(Cliente)));
+                if (!string.IsNullOrWhiteSpace(Cliente.NombreTutor))
+                {
+                    FechaNacimiento = Cliente.FechaNacimientoHijo.ToDateTime(TimeOnly.MinValue);
+                    FechaRegistro = Cliente.FechaRegistro.ToDateTime(TimeOnly.MinValue);
+                    Vista = "Editar";
+                    Errores = "";
+                    PropertyChanged?.Invoke(this, new(nameof(Cliente)));
+                }
             }
+            
         }
 
         private void Cancelar()
